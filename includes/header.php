@@ -30,6 +30,11 @@
 <style>
     .nav-container {
         display: flex;
+        justify-content: space-around;
+    }
+
+    h1 {
+        font-family: 'Bangers', cursive;
     }
 
     .nav-link {
