@@ -1,4 +1,4 @@
-<div class="nav-container">
+<header class="nav-container">
     <!-- TITLE  -->
     <h1 class="site-title">POP MANIA</h1>
 
@@ -25,7 +25,7 @@
                 </a></li>
         </ul>
     </nav>
-</div>
+</header>
 
 <style>
     .nav-container {
