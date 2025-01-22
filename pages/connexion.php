@@ -5,6 +5,8 @@ session_start();
 include "../includes/header.php";
 
 // MAIN
+
+// AFFICHAGE SI USER CONNECTE 
 // Vérifie si l'utilisateur est connecté en vérifiant si la variable de session est définie
 if (isset($_SESSION['email'])) {
   echo '<p>Bonjour ' . $_SESSION['firstname'] . '</p>';
@@ -14,16 +16,12 @@ if (isset($_SESSION['email'])) {
         </ul>';
   echo '<button><a href="../includes/logout.php">Déconnexion</a></button>';
 } else {
+
+  // AFFICHARGE SI USER NON CONNECTE
   // Formulaire de connexion 
   echo '<main>
        <div>
-         <h2>connexion</h2>
-          <form>
-            <input type="email" name="" id="" placeholder="Email">
-            <input type="password" name="" id="" placeholder="Mot de passe">
-            <button type="submit">connexion</button>
-          </form>
-          <a href="./register.php">Créer un compte</a>
+       <button><a href="../pages/login.php">Se connecter</a></button>
         </div>
        </main>';
 }

@@ -1,6 +1,10 @@
 <?php
 // Démarrer la session avant toute autre chose
 session_start();
+
+// HEADER 
+include "../includes/header.php";
+
 // Vérifie si le formulaire a été soumis (si des données POST existent)
 if (!empty($_POST)) {
 
@@ -119,3 +123,6 @@ if (!empty($_POST)) {
         <button type="submit">Créer</button>
     </form>
 </div>
+
+<!--  FOOTER -->
+<?php include "../includes/footer.php"; ?>
