@@ -124,5 +124,6 @@ if (!empty($_POST)) {
     </form>
 </div>
 
-<!--  FOOTER -->
+
+<!-- FOOTER  -->
 <?php include "../includes/footer.php"; ?>

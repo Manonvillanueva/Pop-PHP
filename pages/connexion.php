@@ -28,3 +28,8 @@ if (isset($_SESSION['email'])) {
 
 // FOOTER 
 include "../includes/footer.php";
+?>
+
+<!-- STYLE PART  -->
+<style>
+</style>

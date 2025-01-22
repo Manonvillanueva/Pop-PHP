@@ -75,5 +75,14 @@ if (!empty($_POST)) {
     </div>
 </main>;
 
-// AJOUT DU FOOTER
+<!-- AJOUT DU FOOTER -->
 <?php include "../includes/footer.php" ?>
+
+
+
+<!-- STYLE PART  -->
+<style>
+    main {
+        height: 100%;
+    }
+</style>

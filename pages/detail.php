@@ -40,3 +40,8 @@ mysqli_close($con);
 
 // AJOUT DU FOOTER
 include "../includes/footer.php";
+?>
+
+<style>
+
+</style>
