@@ -34,7 +34,7 @@
 <!-- STYLE PART  -->
 <style>
     header {
-        padding: 30px 40px;
+        padding: 80px 40px;
         background: black;
         color: white;
     }

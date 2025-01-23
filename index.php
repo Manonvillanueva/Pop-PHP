@@ -16,10 +16,9 @@
     <main>
         <!-- SORT CONTAINER : section pour les filtres -->
         <section class="sort-container">
-            <h2>Filtrer par :</h2>
             <!-- FILTRAGE PAR CAT  -->
             <div class="categorie-sort">
-                <h3>Catégories </h3>
+                <p>Catégories </p>
                 <ul>
                     <?php
                     // $con est la variable qui stocke la connexion à la base de données créée par la fonction mysqli_connect.
@@ -52,16 +51,24 @@
 
             <!-- FILTRAGE PAR PRIX  -->
             <div class="price-sort">
-                <h3>Prix </h3>
-                <button><i class="fa-solid fa-arrow-down"></i></button>
-                <button><i class="fa-solid fa-arrow-up"></i></button>
+                <p>Prix </p>
+                <div>
+                    <button><i class="fa-solid fa-arrow-down"></i></button>
+                    <button><i class="fa-solid fa-arrow-up"></i></button>
+                </div>
             </div>
 
             <!-- FILTRAGE PAR ORDRE ALPHABETIQUE  -->
             <div class="alpha-sort">
-                <h3>Ordre Alphabétique </h3>
-                <button><i class="fa-solid fa-arrow-up-a-z"></i></button>
-                <button><i class="fa-solid fa-arrow-down-a-z"></i></button>
+                <p>Ordre Alphabétique </p>
+                <div>
+                    <button><i class="fa-solid fa-arrow-up-a-z"></i></button>
+                    <button><i class="fa-solid fa-arrow-down-a-z"></i></button>
+                </div>
+            </div>
+
+            <div class="image-sort">
+                <img src="./assets/batman-sort.png" alt="">
             </div>
         </section>
 
@@ -101,7 +108,56 @@
 
 <!-- STYLE PART  -->
 <style>
-    img {
+    .sort-container {
+        /* background-image: radial-gradient(circle at -16.45% 25.82%, #a3a7ff 0, #7a8ffc 25%, #3c78f2 50%, #0063e8 75%, #0051de 100%); */
+        background-image: radial-gradient(circle at 114.09% 20.12%, #f1ba00 66.67%, #eaa400 83.33%, #e58e00 100%);
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 40px;
+        text-align: center;
+    }
+
+    .sort-container button {
+        background: none;
+        border: none;
+    }
+
+    .sort-container button:hover {
+        cursor: pointer;
+    }
+
+    .sort-container p {
+        font-size: 15px;
+        text-transform: uppercase;
+        text-decoration: underline;
+        font-weight: bold;
+    }
+
+    .sort-container i {
+        font-size: 30px;
+    }
+
+    .categorie-sort ul {
+        list-style: none;
+    }
+
+    .alpha-sort {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .alpha-sort div {
+        display: flex;
+        text-align: center;
+    }
+
+
+    .image-sort img {
+        height: 200px;
+    }
+
+    .products-container img {
         height: 100px;
         width: 100px;
     }
