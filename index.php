@@ -66,10 +66,6 @@
                     <button><i class="fa-solid fa-arrow-down-a-z"></i></button>
                 </div>
             </div>
-
-            <div class="image-sort">
-                <img src="./assets/batman-sort.png" alt="">
-            </div>
         </section>
 
 
@@ -87,11 +83,13 @@
                 // Boucle pour afficher chaque produit
                 while ($assoc = mysqli_fetch_assoc($req1)) {
                     echo '<div class="products"> 
-                        <a href="../pages/detail.php?id=' . $assoc['id'] . '"><img src="' . $assoc['image_url'] . '" alt="' . $assoc['titre'] . '"/></a>
-                        <h4>' . $assoc['titre'] . '</h4>
-                        <p>' . $assoc['prix'] . '€</p>
-                        <button>ajouter au panier</button>
-                        </div>';
+                        <div class="head-products"><a href="../pages/detail.php?id=' . $assoc['id'] . '"><img src="' . $assoc['image_url'] . '" alt="' . $assoc['titre'] . '"/></a></div>
+                        <div class="footer-products">
+                         <h2>' . $assoc['titre'] . '</h2>
+                         <p>' . $assoc['prix'] . '€</p>
+                         <button>ajouter au panier</button>
+                        </div>
+                    </div>';
                 }
             }
             mysqli_close($con);
@@ -102,63 +100,139 @@
 
     <!-- FOOTER  -->
     <?php include "./includes/footer.php" ?>
+    <script>
+        console.log("Polices disponibles : ", document.fonts);
+    </script>
 </body>
 
 </html>
 
 <!-- STYLE PART  -->
 <style>
+    /* Conteneur bloc de tri  */
     .sort-container {
-        /* background-image: radial-gradient(circle at -16.45% 25.82%, #a3a7ff 0, #7a8ffc 25%, #3c78f2 50%, #0063e8 75%, #0051de 100%); */
-        background-image: radial-gradient(circle at 114.09% 20.12%, #f1ba00 66.67%, #eaa400 83.33%, #e58e00 100%);
+        background: #f8f8f8;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 1200px;
         display: flex;
         justify-content: space-between;
-        padding: 20px 40px;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    /* Les blocs individuels de tri */
+    .sort-container>div {
+        border-radius: 10px;
+        padding: 10px 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         text-align: center;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
-    .sort-container button {
-        background: none;
-        border: none;
-    }
-
-    .sort-container button:hover {
-        cursor: pointer;
-    }
-
+    /* Les titres dans chaque bloc */
     .sort-container p {
-        font-size: 15px;
-        text-transform: uppercase;
-        text-decoration: underline;
+        font-size: 16px;
         font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
     }
 
-    .sort-container i {
-        font-size: 30px;
-    }
-
-    .categorie-sort ul {
+    /* Liste des catégories */
+    .sort-container ul {
         list-style: none;
     }
 
-    .alpha-sort {
-        height: 100%;
+    /* Les boutons dans chaque bloc */
+    .sort-container button {
+        background: #ffba08;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 15px;
+        margin-bottom: 3px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    /* Effet au survol des boutons */
+    .sort-container button:hover {
+        background: #e59400;
+        color: white;
+        transform: scale(1.05);
+    }
+
+    /* Les icônes dans les blocs de tri (flèches et symboles) */
+    .sort-container i {
+        font-size: 24px;
+        color: #555;
+        transition: color 0.3s ease;
+    }
+
+    /* Effet au survol des icônes */
+    .sort-container i:hover {
+        color: white;
+    }
+
+    /* Conteneur DES produits */
+    .products-container {
+        padding: 20px;
         display: flex;
-        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
     }
 
-    .alpha-sort div {
+    /* Chaque produit individuel */
+    .products {
+        padding: 20px;
+        width: 250px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.23);
+        border-radius: 10px;
+    }
+
+    /* Partie supérieure des produits (image) */
+    .head-products {
+        height: 300px;
         display: flex;
-        text-align: center;
+        align-items: center;
     }
 
-
-    .image-sort img {
-        height: 200px;
+    /* Image des produits */
+    .head-products img {
+        max-width: 100%;
     }
 
-    .products-container img {
-        height: 100px;
-        width: 100px;
+    /* Titre des produits */
+    .footer-products h2 {
+        height: 50px;
+        font-size: 15px;
+        text-transform: uppercase;
+    }
+
+    /* Bouton "ajouter au panier" */
+    .footer-products button {
+        margin-top: 5px;
+        width: 100%;
+        padding: 10px 0;
+        font-family: "Open Sans", serif;
+        font-weight: bold;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 50px;
+        background: #dcdcdc;
+    }
+
+    /* Effet au survol du bouton "ajouter au panier" */
+    .footer-products button:hover {
+        cursor: pointer;
+        outline: 2px solid black;
     }
 </style>
