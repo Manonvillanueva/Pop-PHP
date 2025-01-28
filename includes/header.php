@@ -33,17 +33,20 @@
 
 <!-- STYLE PART  -->
 <style>
+    /* Container du header  */
     header {
         padding: 80px 40px;
         background: black;
         color: white;
     }
 
+    /* Container de la nav  */
     .nav-container {
         display: flex;
         justify-content: space-between;
     }
 
+    /* Titre du site  */
     h1 {
         font-family: 'Bangers', cursive;
         font-size: 50px;
@@ -56,28 +59,33 @@
         color: yellow;
     }
 
+    /* Container de la barre de recherche  */
     .search-bar-container {
         display: flex;
         align-items: center;
     }
 
+    /* Barre de recherche  */
     .search-bar {
         padding: 5px 10px;
         font-size: 15px;
         outline: none;
     }
 
+    /* Container des liens  */
     .nav-link {
         display: flex;
         align-items: center;
     }
 
+    /* Container de la liste d'icônes (liens) */
     .nav-link ul {
         list-style: none;
         display: flex;
         gap: 8px;
     }
 
+    /* Icônes(lien)  */
     .nav-link i {
         font-size: 20px;
         transition: transform 0.3s ease;
@@ -86,5 +94,21 @@
     .nav-link i:hover {
         transform: scale(1.1);
         color: rgb(61, 208, 241);
+    }
+
+    @media (max-width:600px) {
+
+        /* Container du header  */
+        header {
+            padding: 40px;
+        }
+
+        /* Container de la nav  */
+        .nav-container {
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
     }
 </style>

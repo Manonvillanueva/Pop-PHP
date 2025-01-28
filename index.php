@@ -169,6 +169,10 @@
         transform: scale(1.05);
     }
 
+    .categorie-sort button {
+        width: 140px;
+    }
+
     /* Les icônes dans les blocs de tri (flèches et symboles) */
     .sort-container i {
         font-size: 24px;
@@ -234,5 +238,25 @@
     .footer-products button:hover {
         cursor: pointer;
         outline: 2px solid black;
+    }
+
+    @media (max-width:620px) {
+
+        /* Container bloc de tri  */
+        .sort-container {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Container liste catégories pop  */
+        .categorie-sort ul {
+            column-count: 2;
+        }
+
+        /* Les icônes dans les blocs de tri (flèches et symboles) */
+        .sort-container i {
+            font-size: 18px;
+        }
+
     }
 </style>
