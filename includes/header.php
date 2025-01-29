@@ -20,7 +20,7 @@
                     <i class="fa-solid fa-house"></i>
                 </a></li>
             <!-- Profil  -->
-            <li><a href="../pages/connexion.php" aria-label="profil">
+            <li><a href="../pages/login.php" aria-label="profil">
                     <i class="fa-solid fa-user"></i>
                 </a></li>
             <!-- Basket  -->
@@ -54,6 +54,7 @@
         transition: transform 0.3s ease;
     }
 
+    /* Effet de survol sur le titre du site  */
     h1:hover {
         transform: scale(1.1);
         color: yellow;
@@ -91,6 +92,7 @@
         transition: transform 0.3s ease;
     }
 
+    /* Effet de survol sur les icônes (liens)  */
     .nav-link i:hover {
         transform: scale(1.1);
         color: rgb(61, 208, 241);

@@ -125,6 +125,7 @@ include "../includes/footer.php";
         transition: background-color 0.3s ease;
     }
 
+    /* Effet de survol du bouton ajouter au panier  */
     .right-part button:hover {
         background: #e59400;
     }

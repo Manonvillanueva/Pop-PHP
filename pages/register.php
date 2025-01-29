@@ -2,9 +2,6 @@
 // Démarrer la session avant toute autre chose
 session_start();
 
-// HEADER 
-include "../includes/header.php";
-
 // Vérifie si le formulaire a été soumis (si des données POST existent)
 if (!empty($_POST)) {
 
@@ -92,38 +89,106 @@ if (!empty($_POST)) {
                 $_SESSION['email'] = $email;
                 // Redirection après une inscription réussie
                 // La fonction exit() est là pour s'assurer que le script s'arrête immédiatement après la redirection (ce qui empêche le code restant de s'exécuter).
-                header("Location: ./connexion.php");
+                header("Location: ./login.php");
                 exit();
             }
         }
-    } else {
-        // AFFICHAGE DES ERREURS
-        foreach ($errors as $error_value) {
-            echo '<p> ' . $error_value . ' </p>';
-        }
     }
-
     // FERMER LA CO A LA BDD 
     mysqli_close($con);
 }
+include "../includes/header.php";
 ?>
-
-<div class="form-container">
-    <p>Créer un compte</p>
-    <form method="POST">
-        <!-- FIRSTNAME FIELD  -->
-        <input type="text" name="firstname_register" value="<?php echo $_POST['firstname_register'] ?>" placeholder="Prénom">
-        <!-- LASTNAME FIELD  -->
-        <input type="text" name="lastname_register" value="<?php echo $_POST['lastname_register'] ?>" placeholder=" Nom de famille">
-        <!-- MAIL FIELD  -->
-        <input type="email" name="email_register" value="<?php echo $_POST['email_register'] ?>" placeholder=" Email">
-        <!-- PASSWORD FIELD  -->
-        <input type="password" name="password_register" placeholder="Mot de passe">
-        <!-- VALID FORM  -->
-        <button type="submit">Créer</button>
-    </form>
-</div>
+<main>
+    <div class="form-container">
+        <h2>Créer un compte</h2>
+        <?php if (!empty($errors)): ?>
+            <div class="error-container">
+                <?php foreach ($errors as $error_value): ?>
+                    <p><?php echo $error_value ?></p>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+        <form method="POST">
+            <!-- FIRSTNAME FIELD  -->
+            <input type="text" name="firstname_register" value="<?php echo $_POST['firstname_register'] ?>" placeholder="Prénom">
+            <!-- LASTNAME FIELD  -->
+            <input type="text" name="lastname_register" value="<?php echo $_POST['lastname_register'] ?>" placeholder=" Nom de famille">
+            <!-- MAIL FIELD  -->
+            <input type="email" name="email_register" value="<?php echo $_POST['email_register'] ?>" placeholder=" Email">
+            <!-- PASSWORD FIELD  -->
+            <input type="password" name="password_register" placeholder="Mot de passe">
+            <!-- VALID FORM  -->
+            <button type="submit">Créer</button>
+        </form>
+    </div>
+</main>
 
 
 <!-- FOOTER  -->
 <?php include "../includes/footer.php"; ?>
+
+<style>
+    main {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        background-color: #f8f8f8;
+    }
+
+    .form-container {
+        background-color: white;
+        padding: 30px;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    .form-container h2 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .error-container {
+        background-color: #fff2f2;
+        border: 1px solid #ffdddd;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .error-container p {
+        color: #dc3545;
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .form-container input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .form-container button {
+        width: 100%;
+        padding: 10px;
+        background-color: #ffba08;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .form-container button:hover {
+        background-color: #e59400;
+    }
+</style>
