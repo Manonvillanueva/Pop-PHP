@@ -58,7 +58,8 @@ include "../includes/header.php";
 ?>
 
 <main>
-    <!-- Affichage des erreurs si elles existent -->
+
+    <!-- Si l'utilisateur est connu dans la SESSION -->
     <?php if (isset($_SESSION['email'])): ?>
         <div class="connexion-container">
             <p>Bonjour <?php echo $_SESSION['firstname']; ?></p>
@@ -70,18 +71,22 @@ include "../includes/header.php";
 
     <?php else: ?>
 
+        <!-- Si l'utilisateur inconnu dans la SESSION -->
         <div class="login-container">
             <h2>connexion</h2>
+            <!-- Affichage des erreurs s'il y en a -->
             <?php if (!empty($error_login)): ?>
                 <?php foreach ($error_login as $error_value): ?>
-                    <p class="error"><?php echo htmlspecialchars($error_value); ?></p>
+                    <p class="error"><?php echo $error_value ?></p>
                 <?php endforeach; ?>
             <?php endif; ?>
+            <!-- Formulaire de connexion -->
             <form class="login-form" method="POST">
                 <input type="email" name="email_login" placeholder="Email">
                 <input type="password" name="password_login" placeholder="Mot de passe">
                 <button type="submit">Me connecter</button>
             </form>
+            <!-- Lien pour créer un comtpe -->
             <a class="register-link" href="./register.php">Créer un compte</a>
         </div>
     <?php endif; ?>
@@ -94,6 +99,7 @@ include "../includes/header.php";
 
 <!-- STYLE PART  -->
 <style>
+    /* Container principal de la page  */
     main {
         display: flex;
         justify-content: center;
@@ -101,6 +107,8 @@ include "../includes/header.php";
         background-color: #f8f8f8;
     }
 
+    /* UTILISATEUR INCONNU DANS LA SESSION  */
+    /* Container du formulaire de connexion  */
     .login-container {
         background-color: white;
         padding: 30px;
@@ -110,6 +118,7 @@ include "../includes/header.php";
         text-align: center;
     }
 
+    /* Titre du formulaire de connexion  */
     .login-container h2 {
         font-size: 24px;
         text-transform: uppercase;
@@ -117,12 +126,14 @@ include "../includes/header.php";
         margin-bottom: 20px;
     }
 
+    /* Messages d'erreur  */
     .error {
         color: red;
         margin: 10px 0;
         font-size: 14px;
     }
 
+    /* Champs du formulaire de connexion */
     .login-form input {
         width: 100%;
         padding: 10px;
@@ -131,6 +142,7 @@ include "../includes/header.php";
         border-radius: 5px;
     }
 
+    /* Bouton de connexion  */
     .login-form button {
         width: 100%;
         padding: 10px;
@@ -143,20 +155,26 @@ include "../includes/header.php";
         transition: background-color 0.3s ease;
     }
 
+    /* Effet de survol sur le bouton de connexion  */
     .login-form button:hover {
         background-color: #e59400;
     }
 
+    /* Lien de création de compte  */
     .register-link {
         display: inline-block;
         margin-top: 15px;
         color: #333;
     }
 
+    /* Effet de survol sur le lien de création de compte  */
     .register-link:hover {
         text-decoration: underline;
     }
 
+    /* SI UTILISATEUR CONNU DE LA SESSION  */
+
+    /* Container utilisateur connecté  */
     .connexion-container {
         border-radius: 10px;
         padding: 80px;
@@ -164,7 +182,7 @@ include "../includes/header.php";
         text-align: center;
     }
 
-    /* Style du texte de bienvenue */
+    /* Texte de bienvenue */
     .connexion-container p {
         font-size: 20px;
         font-weight: bold;
@@ -172,8 +190,7 @@ include "../includes/header.php";
         margin-bottom: 20px;
     }
 
-    /* Style de la liste d'options utilisateur */
-
+    /* Liste d'options utilisateur */
     .ul-connexion li {
         background: rgb(179, 179, 179);
         color: white;
@@ -183,7 +200,7 @@ include "../includes/header.php";
         margin-bottom: 5px;
     }
 
-    /* Boutons */
+    /* Bouton de déconnexion */
     .connexion-container button {
         background: #ffba08;
         color: white;
@@ -197,6 +214,7 @@ include "../includes/header.php";
         transition: background 0.3s ease;
     }
 
+    /* Effet de survol sur le btn de déconnexion  */
     .connexion-container button:hover {
         background: #e59400;
     }

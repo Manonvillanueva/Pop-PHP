@@ -102,6 +102,8 @@ include "../includes/header.php";
 <main>
     <div class="form-container">
         <h2>Créer un compte</h2>
+
+        <!-- AFFICHAGE DES ERREURS -->
         <?php if (!empty($errors)): ?>
             <div class="error-container">
                 <?php foreach ($errors as $error_value): ?>
@@ -109,6 +111,8 @@ include "../includes/header.php";
                 <?php endforeach; ?>
             </div>
         <?php endif; ?>
+
+        <!-- FORMULAIRE D'INSCRIPTION -->
         <form method="POST">
             <!-- FIRSTNAME FIELD  -->
             <input type="text" name="firstname_register" value="<?php echo $_POST['firstname_register'] ?>" placeholder="Prénom">
@@ -129,6 +133,7 @@ include "../includes/header.php";
 <?php include "../includes/footer.php"; ?>
 
 <style>
+    /* Style principal de la page  */
     main {
         display: flex;
         flex: 1;
@@ -137,6 +142,7 @@ include "../includes/header.php";
         background-color: #f8f8f8;
     }
 
+    /* Container du formulaire d'inscription */
     .form-container {
         background-color: white;
         padding: 30px;
@@ -146,6 +152,7 @@ include "../includes/header.php";
         text-align: center;
     }
 
+    /* Titre du formulaire d'inscription */
     .form-container h2 {
         font-size: 24px;
         font-weight: bold;
@@ -153,6 +160,7 @@ include "../includes/header.php";
         margin-bottom: 20px;
     }
 
+    /* Container des erreurs  */
     .error-container {
         background-color: #fff2f2;
         border: 1px solid #ffdddd;
@@ -161,12 +169,15 @@ include "../includes/header.php";
         margin-bottom: 20px;
     }
 
+    /* Messages d'erreurs */
     .error-container p {
         color: #dc3545;
         font-size: 14px;
+        font-weight: bold;
         text-align: left;
     }
 
+    /* Champs du formulaire d'inscription  */
     .form-container input {
         width: 100%;
         padding: 10px;
@@ -176,6 +187,7 @@ include "../includes/header.php";
         font-size: 16px;
     }
 
+    /* Bouton création de compte  */
     .form-container button {
         width: 100%;
         padding: 10px;
@@ -188,6 +200,7 @@ include "../includes/header.php";
         transition: background-color 0.3s ease;
     }
 
+    /* Effet de survol sur le bouton création de compte  */
     .form-container button:hover {
         background-color: #e59400;
     }
