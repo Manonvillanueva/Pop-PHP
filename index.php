@@ -87,7 +87,7 @@
                         <div class="footer-products">
                          <h2>' . $assoc['titre'] . '</h2>
                          <p>' . $assoc['prix'] . '€</p>
-                         <button>ajouter au panier</button>
+                         <button><a href="./functions/addBasket.php?product_id=' . $assoc['id'] . '">ajouter au panier</a></button>
                         </div>
                     </div>';
                 }

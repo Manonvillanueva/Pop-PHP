@@ -34,7 +34,7 @@ if (!$con) {
           <h3>' . $assoc_id["titre"] . '</h3>
           <p class="description">' . $assoc_id['description'] . '</p>
           <p class="price">' . $assoc_id['prix'] . '€</p>
-          <button>Ajouter au panier</button>
+          <button><a href="../functions/addBasket.php?product_id=' . $id . '">Ajouter au panier</a></button>
           </div>
         </div>
         </main>';

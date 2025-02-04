@@ -2,6 +2,12 @@
 // Démarrer la session avant toute autre chose
 session_start();
 
+// Pour éviter le retour et de retomber sur le formulaire d'inscription si tu viens de créer ton compte 
+if (isset($_SESSION['email'])) {
+    header("Location: ../index.php");
+    exit();
+}
+
 // Vérifie si le formulaire a été soumis (si des données POST existent)
 if (!empty($_POST)) {
 

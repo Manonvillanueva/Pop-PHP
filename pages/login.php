@@ -17,7 +17,7 @@ if (!empty($_POST)) {
 
         // PREPARATION REQ SQL
         // Cherchez l'utilisateur dans la base de données par son email
-        $query = "SELECT firstname, mail, password FROM user WHERE mail = ?";
+        $query = "SELECT id, firstname, mail, password FROM user WHERE mail = ?";
         // Si la requête préparée a réussi
         if ($stmt = mysqli_prepare($con, $query)) {
             // On lie l'email de l'utilisateur entré dans le formulaire à la requête préparée
@@ -33,7 +33,7 @@ if (!empty($_POST)) {
                 // Si l'email est trouvé:
                 // Lier les résultats à des variables PHP
                 // Cela permet d'accéder facilement aux informations de l'utilisateur récupérées
-                mysqli_stmt_bind_result($stmt, $firstname_db, $mail_db, $password_db);
+                mysqli_stmt_bind_result($stmt, $id_db, $firstname_db, $mail_db, $password_db);
                 mysqli_stmt_fetch($stmt);
                 // Vérification si le mdpasse entré par l'utilisateur correspond au mdpasse stocké dans la BDD
                 // 'password_verify' compare le mot de passe haché avec celui saisi dans le formulaire
@@ -42,6 +42,7 @@ if (!empty($_POST)) {
                     // Ces informations pourront être utilisées sur d'autres pages
                     $_SESSION['firstname'] = $firstname_db;
                     $_SESSION['email'] = $mail_db;
+                    $_SESSION['user_id'] = $id_db;
                 } else {
                     // Si le mdpasse est faux on ajoute une erreur 
                     $error_login["password_login"] = "Votre mot de passe est incorrect";
@@ -66,7 +67,7 @@ include "../includes/header.php";
             <ul class="ul-connexion">
                 <li>Mes commandes</li>
                 <li>Mes informations</li>
-            </ul><button><a href="../includes/logout.php">Déconnexion</a></button>
+            </ul><button><a href="../functions/logout.php">Déconnexion</a></button>
         </div>
 
     <?php else: ?>
@@ -186,6 +187,7 @@ include "../includes/header.php";
     .connexion-container p {
         font-size: 20px;
         font-weight: bold;
+        text-transform: capitalize;
         color: #333;
         margin-bottom: 20px;
     }
