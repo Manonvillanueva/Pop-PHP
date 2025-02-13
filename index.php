@@ -87,7 +87,7 @@
                         <div class="footer-products">
                          <h2>' . $assoc['titre'] . '</h2>
                          <p>' . $assoc['prix'] . '€</p>
-                         <button><a href="./functions/addBasket.php?product_id=' . $assoc['id'] . '">ajouter au panier</a></button>
+                         <button class="add-to-cart" data-id=' . $assoc['id'] . ' >ajouter au panier</button>
                         </div>
                     </div>';
                 }
@@ -103,6 +103,7 @@
     <script>
         console.log("Polices disponibles : ", document.fonts);
     </script>
+    <script src="../scripts/addCart.js"></script>
 </body>
 
 </html>

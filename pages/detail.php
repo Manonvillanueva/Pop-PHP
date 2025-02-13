@@ -34,7 +34,7 @@ if (!$con) {
           <h3>' . $assoc_id["titre"] . '</h3>
           <p class="description">' . $assoc_id['description'] . '</p>
           <p class="price">' . $assoc_id['prix'] . '€</p>
-          <button><a href="../functions/addBasket.php?product_id=' . $id . '">Ajouter au panier</a></button>
+          <button class="add-to-cart" data-id=' . $assoc_id['id'] . '>Ajouter au panier</button>
           </div>
         </div>
         </main>';
@@ -46,6 +46,8 @@ mysqli_close($con);
 // AJOUT DU FOOTER
 include "../includes/footer.php";
 ?>
+
+<script src="../scripts/addCart.js"></script>
 
 <style>
     /* Afin d'abaisser le footer en bas de la page  */

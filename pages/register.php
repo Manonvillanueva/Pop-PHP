@@ -90,9 +90,13 @@ if (!empty($_POST)) {
             if (!mysqli_stmt_execute($stmt)) {
                 echo "Erreur : " . mysqli_stmt_error($stmt);
             } else {
-                // L'inscription a réussi, alors démarrer la session et stocker les informations de l'utilisateur
+
+                // L'inscription a réussi, récupérer l'ID de l'utilisateur
+                $_SESSION['user_id'] = mysqli_insert_id($con);
+                // Démarrer la session et stocker les informations de l'utilisateur
                 $_SESSION['firstname'] = $firstname;
                 $_SESSION['email'] = $email;
+
                 // Redirection après une inscription réussie
                 // La fonction exit() est là pour s'assurer que le script s'arrête immédiatement après la redirection (ce qui empêche le code restant de s'exécuter).
                 header("Location: ./login.php");
